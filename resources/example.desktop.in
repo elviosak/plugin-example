@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=LXQtPanel/Plugin
+Icon=face-cool
+
+#TRANSLATIONS_DIR=../translations
