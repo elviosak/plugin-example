@@ -4,7 +4,7 @@ Instructions:
 
 ```bash
 #clone repo
-git clone https://github.com/slidinghotdog/plugin-example.git ./plugin-newname
+git clone https://github.com/elviosak/plugin-example.git ./plugin-newname
 
 # cd into folder
 cd plugin-newname
