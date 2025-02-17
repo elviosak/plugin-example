@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.18.0 FATAL_ERROR)
 # CMP0000: Call the cmake_minimum_required() command at the beginning of the top-level
 # CMakeLists.txt file even before calling the project() command.
 # The cmake_minimum_required(VERSION) command implicitly invokes the cmake_policy(VERSION)
@@ -36,21 +36,21 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-set(REQUIRED_QT_VERSION "5.15.0")
-set(KF5_MINIMUM_VERSION "5.36.0")
-set(LXQT_GLOBALKEYS_MINIMUM_VERSION "0.17.0")
-set(LXQT_MINIMUM_VERSION "0.17.0")
+set(REQUIRED_QT_VERSION "6.6.0")
+set(KF6_MINIMUM_VERSION "6.0.0")
+set(LXQT_GLOBALKEYS_MINIMUM_VERSION "2.1.0")
+set(LXQT_MINIMUM_VERSION "2.1.0")
 
-# find_package(Qt5DBus ${REQUIRED_QT_VERSION} REQUIRED)
-# find_package(Qt5LinguistTools ${REQUIRED_QT_VERSION} REQUIRED)
-find_package(Qt5Widgets ${REQUIRED_QT_VERSION} REQUIRED)
-# find_package(Qt5X11Extras ${REQUIRED_QT_VERSION} REQUIRED)
-# find_package(Qt5Xml ${REQUIRED_QT_VERSION} REQUIRED)
-# find_package(KF5WindowSystem ${KF5_MINIMUM_VERSION} REQUIRED)
+# find_package(Qt6DBus ${REQUIRED_QT_VERSION} REQUIRED)
+# find_package(Qt6LinguistTools ${REQUIRED_QT_VERSION} REQUIRED)
+find_package(Qt6Widgets ${REQUIRED_QT_VERSION} REQUIRED)
+# find_package(Qt6Xml ${REQUIRED_QT_VERSION} REQUIRED)
+# find_package(KF6WindowSystem ${KF6_MINIMUM_VERSION} REQUIRED)
 find_package(lxqt ${LXQT_MINIMUM_VERSION} REQUIRED)
 find_package(lxqt-globalkeys-ui ${LXQT_GLOBALKEYS_MINIMUM_VERSION} REQUIRED)
-# find_package(lxqt-panel ${LXQT_MINIMUM_VERSION} REQUIRED)
-# find_package(PkgConfig REQUIRED)
+# find_package(lxqt-menu-data ${LXQT_MINIMUM_VERSION} REQUIRED)
+
+# find_package(LayerShellQt REQUIRED)
 
 # Patch Version
 set(LXQT_PANEL_PATCH_VERSION 1)
@@ -98,7 +98,6 @@ set(UIS
 set(LIBRARIES
     ${LIBRARIES}
     lxqt-globalkeys-ui
-    # Qt5Xdg
 )
 
 include ("cmake/BuildPlugin.cmake")

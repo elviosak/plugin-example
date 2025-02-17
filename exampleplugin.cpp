@@ -32,9 +32,9 @@
 
 #define QSL(text) QStringLiteral(text)
 
-ExamplePlugin::ExamplePlugin(const ILXQtPanelPluginStartupInfo &startupInfo) :
-    QObject(),
-    ILXQtPanelPlugin(startupInfo)
+ExamplePlugin::ExamplePlugin(const ILXQtPanelPluginStartupInfo& startupInfo)
+    : QObject()
+    , ILXQtPanelPlugin(startupInfo)
 {
     mWidget = new QToolButton;
     mWidget->setAutoRaise(true);
@@ -54,7 +54,7 @@ ExamplePlugin::~ExamplePlugin() = default;
 void ExamplePlugin::settingsChanged()
 {
     mShowIcon = settings()->value(QSL("showIcon"), true).toBool();
-    mIcon = settings()->value(QSL("icon"), QSL("face-cool")).toString();
+    mIcon = settings()->value(QSL("icon"), QSL("plugins")).toString();
     mShowText = settings()->value(QSL("showText"), true).toBool();
     mText = settings()->value(QSL("text"), QSL("About")).toString();
 
@@ -62,15 +62,15 @@ void ExamplePlugin::settingsChanged()
     mWidget->setText(mText);
     if (!mShowIcon && !mShowText) {
         mWidget->hide();
-    }
-    else {
+    } else {
         mWidget->show();
-        if (mShowIcon && mShowText)
+        if (mShowIcon && mShowText) {
             mWidget->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextBesideIcon);
-        else if (mShowIcon)
+        } else if (mShowIcon) {
             mWidget->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonIconOnly);
-        else if (mShowText)
+        } else if (mShowText) {
             mWidget->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextOnly);
+        }
     }
     mWidget->update();
 }
@@ -80,6 +80,7 @@ void ExamplePlugin::realign()
     mWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 }
 
-QDialog *ExamplePlugin::configureDialog(){
+QDialog* ExamplePlugin::configureDialog()
+{
     return new ExampleConfiguration(settings());
 }

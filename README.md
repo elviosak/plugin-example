@@ -18,14 +18,3 @@ chmod +x ./install.sh
 ./install.sh
 ```
 If everything was  succesful you should have a new plugin ready to be added to your panel, named `NewName`.
-
-When testing changes you will probably need to restart panel, e.g.
-
-```bash
-killall lxqt-panel && lxqt-panel &
-```
-
-
-
-
-
